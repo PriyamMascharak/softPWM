@@ -136,18 +136,13 @@ int main(void)
   __HAL_TIM_ENABLE_DMA(&htim1, TIM_DMA_UPDATE);
   __HAL_TIM_ENABLE_DMA(&htim2, TIM_DMA_UPDATE);
   __HAL_TIM_ENABLE_DMA(&htim4, TIM_DMA_UPDATE);
-
-  //ill use o as a main variable for this tutorial
+  //used to contorl duty cycle changes from 0-100 and back to 0
   uint32_t o=0;
   uint32_t f=0;
-  //im afraid of SRAMs not being initialised to 0
+
   zeroSoftPWM(dataA);
   zeroSoftPWM(dataB);
   zeroSoftPWM(dataC);
-
-//  setSoftPWM(GPIO_PIN_13, 10, (uint32_t*)&dataC);
-//  setSoftPWM(GPIO_PIN_13, 50, (uint32_t*)&dataC);
-//  setSoftPWM(GPIO_PIN_13, 100, (uint32_t*)&dataC);
 
   /* USER CODE END 2 */
 
@@ -195,7 +190,6 @@ int main(void)
 	 	  setSoftPWM(GPIO_PIN_14, o, (uint32_t*)&dataC);
 	 	  setSoftPWM(GPIO_PIN_15, o, (uint32_t*)&dataC);
 
-	 	  //thats it 33 PWM pins looping 0-100 duty cycle yeeey
 
 	 	  if(o==0)
 	 	  {
